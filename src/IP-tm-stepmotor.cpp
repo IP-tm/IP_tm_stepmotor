@@ -1,4 +1,4 @@
-#include "SuperStepper.h"
+#include "IP-tm-stepmotor.h"
 
 SuperStepper::SuperStepper(uint8_t stepPin, uint8_t dirPin) {
   _stepPin = stepPin;
