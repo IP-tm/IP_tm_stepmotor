@@ -1,6 +1,6 @@
-#include "IP-tm-stepmotor.h"
+#include "IP_tm_stepmotor.h"
 
-SuperStepper::SuperStepper(uint8_t stepPin, uint8_t dirPin) {
+IP_tm_stepmotor::IP_tm_stepmotor(uint8_t stepPin, uint8_t dirPin) {
   _stepPin = stepPin;
   _dirPin = dirPin;
 
@@ -8,7 +8,7 @@ SuperStepper::SuperStepper(uint8_t stepPin, uint8_t dirPin) {
   pinMode(_dirPin, OUTPUT);
 }
 
-void SuperStepper::stepPulse(int delayUs) {
+void IP_tm_stepmotor::stepPulse(int delayUs) {
   digitalWrite(_stepPin, HIGH);
   delayMicroseconds(delayUs);
   digitalWrite(_stepPin, LOW);
@@ -16,12 +16,12 @@ void SuperStepper::stepPulse(int delayUs) {
 }
 
 // EASY
-void SuperStepper::run(long distance, Dir direction) {
+void IP_tm_stepmotor::run(long distance, Dir direction) {
   run(distance, STEPS, direction, 500);
 }
 
 // PRO
-void SuperStepper::run(long distance, Unit unit, Dir direction, int pulseUs) {
+void IP_tm_stepmotor::run(long distance, Unit unit, Dir direction, int pulseUs) {
 
   digitalWrite(_dirPin, direction == CW);
 
@@ -38,8 +38,8 @@ void SuperStepper::run(long distance, Unit unit, Dir direction, int pulseUs) {
 }
 
 // EXPERT
-void SuperStepper::run(long distance, Unit unit, Dir direction,
-                       int pulseUs, bool enable, bool sleep) {
+void IP_tm_stepmotor::run(long distance, Unit unit, Dir direction,
+                          int pulseUs, bool enable, bool sleep) {
 
   // enable/sleep placeholder (user can expand with pins)
 
@@ -47,14 +47,14 @@ void SuperStepper::run(long distance, Unit unit, Dir direction,
 }
 
 // Calibration
-void SuperStepper::setStepsPerCM(float value) {
+void IP_tm_stepmotor::setStepsPerCM(float value) {
   _stepsPerCM = value;
 }
 
-void SuperStepper::setZero() {
+void IP_tm_stepmotor::setZero() {
   _position = 0;
 }
 
-void SuperStepper::setMaxPosition(long pos) {
+void IP_tm_stepmotor::setMaxPosition(long pos) {
   _maxPos = pos;
 }
