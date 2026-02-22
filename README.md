@@ -1,4 +1,4 @@
-# IP-tm-stepmotor
+# IP_tm_stepmotor
 
 Simple stepper library with 3 control levels.
 
