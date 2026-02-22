@@ -1,4 +1,4 @@
-#include <SuperStepper.h>
+#include <IP_tm_stepmotor.h>
 
 SuperStepper motor(21, 22);
 
